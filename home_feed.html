@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+
+    <link rel="stylesheet" href="src/css/main.css" />
+    <style>
+      body {
+        display: block;
+      }
+
+      div,
+      p {
+        margin: 0;
+        padding: 0;
+      }
+
+      h2 {
+        display: flex;
+        justify-content: space-between;
+        margin: 0;
+        font-size: 18px;
+        line-height: 22px;
+        padding: 13px 16px;
+      }
+
+      a.navbar-home {
+        color: #f26e22;
+      }
+
+      main {
+        padding: 68px 16px 70px 16px;
+      }
+
+      .post1,
+      .post2,
+      .post3 {
+        padding-bottom: 20px;
+      }
+
+      .post-header {
+        display: flex;
+        flex-direction: row;
+        margin: 0 0 12px 0;
+        padding: 0;
+        height: 42px;
+      }
+
+      .user-img {
+        width: 42px;
+        height: 42px;
+      }
+
+      .post-header-title {
+        margin-left: 12px;
+        width: 296px;
+      }
+
+      p.post-location {
+        font-family: Spoqa Han Sans Neo;
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 17.53px;
+        margin-top: 4px;
+        margin-bottom: 2px;
+      }
+
+      p.post-id {
+        font-family: Spoqa Han Sans Neo;
+        font-size: 12px;
+        font-weight: 400;
+        line-height: 14px;
+        color: #767676;
+        margin-top: 0;
+      }
+
+      .dialog-btn-red {
+        color: red;
+      }
+
+      .dialog-btn:hover,
+      .dialog-btn-red:hover {
+        background: #f26e22;
+        color: white;
+      }
+
+      /* 모달창 위치를 main영역 정중앙에 고정시키기...개선필요
+      dialog {
+      }
+       */
+
+      .more-dialog-container {
+        display: flex;
+        flex-direction: column;
+        border-radius: 4px;
+      }
+
+      hr {
+        border: 0.2px solid rgb(193, 193, 193);
+        width: 100%;
+      }
+
+      div.post-main,
+      div.post-footer {
+        padding-left: 54px;
+        align-items: center;
+      }
+
+      div.post-footer {
+        padding-top: 12px;
+      }
+
+      .post-main-content {
+        font-family: Spoqa Han Sans Neo;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 17.53px;
+        margin-bottom: 16px;
+      }
+
+      button {
+        padding: 0;
+      }
+
+      .post-footer-icon-btn {
+        padding: 0;
+        width: 20px;
+        height: 20px;
+      }
+
+      img.icon-heart,
+      img.icon-comment {
+        width: 20px;
+        height: 20px;
+      }
+
+      .post-footer-icon-count {
+        color: #767676;
+        font-size: 12px;
+        line-height: 12px;
+        vertical-align: ;
+        margin-right: 16px;
+      }
+
+      p.post-date {
+        font-size: 10px;
+        font-weight: 400;
+        line-height: 12px;
+        color: #767676;
+        padding-top: 16px;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="header-home">
+      <h2>
+        감귤마켓 피드
+        <a href="search.html" class="search-icon" alt="검색">
+          <img src="src/img/icon/icon-search.png" />
+        </a>
+      </h2>
+    </header>
+
+    <main>
+      <section class="post-section">
+        <article class="post1">
+          <div class="post-header">
+            <img class="user-img" src="src/img/profile-img.png" alt="" />
+            <div class="post-header-title">
+              <p class="post-location">애월읍 위니브 감귤농장</p>
+              <p class="post-id">@ weniv_Mandarin</p>
+            </div>
+
+            <div class="post-more">
+              <button class="post-more-btn">
+                <img src="src/img/icon/s-icon-more-vertical.png" alt="" />
+              </button>
+            </div>
+
+            <dialog>
+              <div class="more-dialog-container">
+                <form method="dialog" style="text-align: center">
+                  <button class="dialog-btn-red">신고</button>
+                  <hr />
+                  <button class="dialog-btn-red">팔로우 취소</button>
+                  <hr />
+                  <button class="dialog-btn">공유 대상</button>
+                  <hr />
+                  <button class="dialog-btn">링크 복사</button>
+                  <hr />
+                  <button class="dialog-btn">취소</button>
+                </form>
+              </div>
+            </dialog>
+          </div>
+          <div class="post-main">
+            <p class="post-main-content">
+              옷을 인생을 그러므로 없으면 것은 이상은 것은 우리의 위하여,
+              뿐이다. 이상의 청춘의 뼈 따뜻한 그들의 그와 약동하다. 대고, 못할
+              넣는 풍부하게 뛰노는 인생의 힘있다.
+            </p>
+            <img src="src/img/post-img-example.png" alt="" class="post-img" />
+          </div>
+          <div class="post-footer">
+            <button class="post-footer-icon-btn" onclick="toggleImg()">
+              <img
+                src="src/img/icon/icon-heart.png"
+                alt=""
+                class="icon-heart"
+              />
+            </button>
+            <sapn class="post-footer-icon-count">58</sapn>
+            <button class="post-footer-icon-btn">
+              <img
+                src="src/img/icon/icon-message-circle.png"
+                alt=""
+                class="icon-comment"
+              />
+            </button>
+            <sapn class="post-footer-icon-count">12</sapn>
+            <p class="post-date">2020년 10월 21일</p>
+          </div>
+        </article>
+        <article class="post2">
+          <div class="post-header">
+            <img class="user-img" src="src/img/Ellipse 1.png" alt="" />
+            <div class="post-header-title">
+              <p class="post-location">서귀포시 한라봉 타운</p>
+              <p class="post-id">@ hanlabong22</p>
+            </div>
+            <div class="post-more">
+              <button class="post-more-btn">
+                <img src="src/img/icon/s-icon-more-vertical.png" alt="" />
+              </button>
+            </div>
+
+            <dialog>
+              <div class="more-dialog-container">
+                <form method="dialog" style="text-align: center">
+                  <button class="dialog-btn-red">신고</button>
+                  <hr />
+                  <button class="dialog-btn-red">팔로우 취소</button>
+                  <hr />
+                  <button class="dialog-btn">공유 대상</button>
+                  <hr />
+                  <button class="dialog-btn">링크 복사</button>
+                  <hr />
+                  <button class="dialog-btn">취소</button>
+                </form>
+              </div>
+            </dialog>
+          </div>
+          <div class="post-main">
+            <p class="post-main-content">감귤 잘 자라는 중...❤️</p>
+            <img src="src/img/post-img-example2.png" alt="" class="post-img" />
+          </div>
+
+          <div class="post-footer">
+            <button class="icon-heart" onclick="toggleImg()">
+              <img
+                src="src/img/icon/icon-heart-active.png"
+                alt=""
+                class="icon-heart"
+              />
+              <sapn class="post-footer-icon-count">58</sapn>
+            </button>
+            <button class="icon-comment">
+              <img
+                src="src/img/icon/icon-message-circle.png"
+                alt=""
+                class="icon-comment"
+              /><sapn class="post-footer-icon-count">12</sapn>
+            </button>
+            <p class="post-date">2020년 10월 21일</p>
+          </div>
+        </article>
+
+        <article class="post3">
+          <div class="post-header">
+            <img class="user-img" src="src/img/profile-img.png" alt="" />
+            <div class="post-header-title">
+              <p class="post-location">애월읍 위니브 감귤농장</p>
+              <p class="post-id">@ weniv_Mandarin</p>
+            </div>
+
+            <div class="post-more">
+              <button class="post-more-btn">
+                <img src="src/img/icon/s-icon-more-vertical.png" alt="" />
+              </button>
+            </div>
+
+            <dialog>
+              <div class="more-dialog-container">
+                <form method="dialog" style="text-align: center">
+                  <button class="dialog-btn-red">신고</button>
+                  <hr />
+                  <button class="dialog-btn-red">팔로우 취소</button>
+                  <hr />
+                  <button class="dialog-btn">공유 대상</button>
+                  <hr />
+                  <button class="dialog-btn">링크 복사</button>
+                  <hr />
+                  <button class="dialog-btn">취소</button>
+                </form>
+              </div>
+            </dialog>
+          </div>
+          <div class="post-main">
+            <p class="post-main-content">
+              옷을 인생을 그러므로 없으면 것은 이상은 것은 우리의 위하여,
+              뿐이다. 이상의 청춘의 뼈 따뜻한 그들의 그와 약동하다. 대고, 못할
+              넣는 풍부하게 뛰노는 인생의 힘있다.
+            </p>
+          </div>
+          <div class="post-footer">
+            <button class="icon-heart" onclick="toggleImg()">
+              <img
+                src="src/img/icon/icon-heart.png"
+                alt=""
+                class="icon-heart"
+              />
+              <sapn class="post-footer-icon-count">58</sapn>
+            </button>
+            <button class="icon-comment">
+              <img
+                src="src/img/icon/icon-message-circle.png"
+                alt=""
+                class="icon-comment"
+              /><sapn class="post-footer-icon-count">12</sapn>
+            </button>
+            <p class="post-date">2020년 10월 21일</p>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <footer class="footer-nav">
+      <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+        <ul class="navbar">
+          <li class="navbar-li">
+            <a class="navbar-home" href="home_feed.html">
+              <img
+                src="src/img/icon/icon-home-fill.png"
+                alt=""
+                class="navbar-icon"
+              />
+              <figcaption>홈</figcaption>
+            </a>
+          </li>
+          <li class="navbar-li">
+            <a class="navbar-chat" href="chat_list.html">
+              <img
+                src="src/img/icon/icon-message-circle.png"
+                alt=""
+                class="navbar-icon"
+              />
+              <figcaption>채팅</figcaption>
+            </a>
+          </li>
+          <li class="navbar-li">
+            <a class="navbar-upload" href="upload.html">
+              <img
+                src="src/img/icon/icon-edit.png"
+                alt=""
+                class="navbar-icon"
+              />
+              <figcaption>게시물 작성</figcaption>
+            </a>
+          </li>
+          <li class="navbar-li">
+            <a class="navbar-profile" href="my_profile.html">
+              <img
+                src="src/img/icon/icon-user.png"
+                alt=""
+                class="navbar-icon"
+              />
+              <figcaption>프로필</figcaption>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </footer>
+  </body>
+
+  <script>
+    // 피드에서 하트나 코멘트 아이콘 클릭 시 fill 타입으로 변경하기 (두번 클릭 시 원복되는 건 미적용)
+    function toggleImg() {
+      document.getElementById("icon-heart").src =
+        "src/img/icon/icon-heart-active.png";
+    }
+
+    // 피드에서 더보기 버튼 클릭 시 모달창 팝업
+    const activeModalButton = document.querySelector("div button");
+    const modal = document.querySelector("dialog");
+
+    activeModalButton.addEventListener("click", (e) => {
+      modal.showModal();
+    });
+
+    modal.addEventListener("click", (e) => {
+      if (e.target === e.currentTarget) modal.close();
+    });
+  </script>
+</html>

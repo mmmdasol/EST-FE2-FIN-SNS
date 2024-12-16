@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+
+    <link rel="stylesheet" href="src/css/main.css" />
+    <style>
+      body {
+        display: block;
+      }
+
+      main {
+        padding: 68px 16px 70px 16px;
+      }
+
+      .header-home > div {
+        display: flex;
+        justify-content: space-between;
+        padding: 0;
+      }
+
+      .back-icon {
+        width: 22px;
+        height: 22px;
+        margin: 13px 20px 13px 16px;
+      }
+
+      #search-input {
+        width: 316px;
+        height: 32px;
+        border-radius: 32px;
+        border: none;
+        padding: 0;
+        margin: 8px 16px 8px 0;
+        background: #f2f2f2;
+      }
+
+      /* input에 텍스트 입력할 때도 padding-left:16px 적용되도록 개선하기.... */
+      #search-input:focus {
+        outline: none;
+        background: #fab57c;
+      }
+
+      #search-input::placeholder {
+        font-size: 14px;
+        padding-left: 16px;
+      }
+
+
+      span.orange {
+        color: #F26E22;
+      }
+
+
+
+
+
+      a.navbar-home {
+        color: #f26e22;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="header-home">
+      <div>
+        <a href="#" class="back-icon" alt="뒤로가기기">
+          <img src="src/img/icon/icon-arrow-left.png" />
+        </a>
+        <form class="search-box" action="" method="get">
+          <label for="search-keyword"></label>
+          <input type="text" id="search-input" placeholder="계정 검색" value="애월읍"/>
+        </form>
+      </div>
+    </header>
+
+    <main>
+
+      <section class="post-section">
+          <div class="post-header">
+            <img class="user-img" src="src/img/profile-img.png" alt="" />
+            <div class="post-header-title">
+              <p class="post-location"><span class="orange">애월읍</span> 위니브 감귤농장</p>
+              <p class="post-id">@ weniv_Mandarin</p>
+            </div>
+          </div>
+          <div class="post-header">
+            <img class="user-img" src="src/img/profile-hanlabong.png" alt="" />
+            <div class="post-header-title">
+              <p class="post-location"><span class="orange">애월읍</span> 한라봉 최고 맛집</p>
+              <p class="post-id">@ weniv_Mandarin</p>
+            </div>
+          </div>
+          <div class="post-header">
+            <img class="user-img" src="src/img/profile-mandarin_king.png" alt="" />
+            <div class="post-header-title">
+              <p class="post-location">감귤의 품격 - <span class="orange">애월읍</span></p>
+              <p class="post-id">@ mandarin_king</p>
+            </div>
+          </div>
+
+    </main>
+
+    <footer class="footer-nav">
+      <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+        <ul class="navbar">
+          <li class="navbar-li">
+            <a class="navbar-home" href="home_feed.html">
+              <img
+                src="src/img/icon/icon-home-fill.png"
+                alt=""
+                class="navbar-icon"
+              />
+              <figcaption>홈</figcaption>
+            </a>
+          </li>
+          <li class="navbar-li">
+            <a class="navbar-chat" href="chat_list.html">
+              <img
+                src="src/img/icon/icon-message-circle.png"
+                alt=""
+                class="navbar-icon"
+              />
+              <figcaption>채팅</figcaption>
+            </a>
+          </li>
+          <li class="navbar-li">
+            <a class="navbar-write" href="upload.html">
+              <img
+                src="src/img/icon/icon-edit.png"
+                alt=""
+                class="navbar-icon"
+              />
+              <figcaption>게시물 작성</figcaption>
+            </a>
+          </li>
+          <li class="navbar-li">
+            <a class="navbar-profile" href="my_profile.html">
+              <img
+                src="src/img/icon/icon-user.png"
+                alt=""
+                class="navbar-icon"
+              />
+              <figcaption>프로필</figcaption>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </footer>
+  </body>
+</html>

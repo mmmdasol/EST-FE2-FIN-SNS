@@ -1,0 +1,85 @@
+﻿<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+
+    <link rel="stylesheet" href="src/css/main.css" />
+    <style>
+      /*
+        .invalid-submit-btn {
+         background-color: #FFC7A7;
+        }
+        */
+
+      .attach-div {
+        position: relative;
+        top: -42px;
+        left: 180px;
+        height: 0;
+      }
+
+      .attach-img {
+        width: 36px;
+        height: 36px;
+        cursor: pointer;
+      }
+
+      .profile-div {
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div style="display: block">
+        <header>
+          <h1>프로필 설정</h1>
+          <p class="description">나중에 언제든지 변경할 수 있습니다.</p>
+        </header>
+        <form action="home.html" class="form-control">
+          <div class="profile-div">
+            <img class="profile-img" src="/src/img/basic-profile-img.png" />
+          </div>
+          <div class="attach-div">
+            <label for="profile-img-upload"
+              ><img class="attach-img" src="/src/img/upload-file.png"
+            /></label>
+            <input type="file" id="profile-img-upload" name="filename" />
+          </div>
+          <div class="form-div">
+            <label for="name">사용자 이름</label>
+            <input
+              type="text"
+              id="name"
+              class="form-control form-input"
+              placeholder="2-10자 이내여야 합니다."
+            />
+          </div>
+          <div class="form-div">
+            <label for="uid">계정 ID</label>
+            <input
+              type="text"
+              id="uid"
+              class="form-control form-input"
+              placeholder="영문, 숫자, 특수문자(.),(_)만 사용 가능합니다."
+            />
+          </div>
+          <div class="form-div">
+            <label for="info">소개</label>
+            <input
+              type="text"
+              id="info"
+              class="form-control form-input"
+              placeholder="자신과 판매할 상품에 대해 소개해 주세요!"
+            />
+          </div>
+          <button class="btn-default submit-btn" type="submit">
+            감귤마켓 시작하기
+          </button>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
