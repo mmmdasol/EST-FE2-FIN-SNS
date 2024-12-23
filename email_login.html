@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title></title>
+    <title>감귤마켓</title>
 
     <link rel="stylesheet" href="src/css/main.css" />
     <style>
@@ -14,23 +14,104 @@
         */
     </style>
   </head>
-  <body>
-    <div class="container">
-      <div style="display: block">
+  <script src="src/js/main.js"></script>
+  <script src="src/js/md5.js"></script>
+  <script>
+      window.addEventListener("DOMContentLoaded", () => {
+          let email_input = document.getElementById("email");
+          let password_input = document.getElementById("pwd");
+          let login_button = document.getElementById("login-btn");
+          login_button.style.backgroundColor = inactive_color;
+
+          let message = document.getElementById("message");
+
+          let login_form = document.getElementById("login-form");
+          login_form.setAttribute("form-invalid", "false");
+
+          login_form.addEventListener("focusout", (event) => {
+              if (event.target.tagName === 'INPUT') {
+                  const is_valid_email = email_input.getAttribute("data-invalid");
+                  const is_valid_password = password_input.getAttribute("data-invalid");
+
+                  if(is_valid_email === 'true' && is_valid_password === 'true')
+                  {
+                      message.innerText = '';
+                      login_form.setAttribute("form-invalid", "true");
+                      login_button.style.backgroundColor = active_color;
+                  }
+                  else
+                  {
+                      login_form.setAttribute("form-invalid", "false");
+                      login_button.style.backgroundColor = inactive_color;
+                  }
+              }
+          });
+
+          email_input.addEventListener("blur", (event) => {
+              if(event.target.value.trim() === '')
+              {
+                  message.innerText = '* 이메일을 입력해주세요.';
+                  event.target.setAttribute("data-invalid", 'false');
+              }
+              else
+              {
+                  event.target.setAttribute("data-invalid", 'true');
+              }
+          });
+
+          password_input.addEventListener("blur", (event) => {
+              if(event.target.value.trim() === '')
+              {
+                  message.innerText = '* 비밀번호를 입력해주세요.';
+                  event.target.setAttribute("data-invalid", 'false');
+              }
+              else
+              {
+                  event.target.setAttribute("data-invalid", 'true');
+              }
+          });
+
+          login_button.addEventListener("click", async (event) => {
+              if(login_form.getAttribute("form-invalid") === 'false')
+              {
+                  console.log("유효하지 않은 값");
+                  return;
+              }
+
+              try{
+                  let msg = await login(email_input.value, md5(password_input.value));
+
+                  if(msg.length > 0)
+                  {
+                      message.innerText = '* ' + msg;
+                      login_button.style.backgroundColor = inactive_color;
+                  }
+              } catch(err){
+                  console.error(err);
+              }
+          });
+      });
+  </script>
+</head>
+<body>
+<div class="container">
+    <div>
         <header><h1>로그인</h1></header>
-        <form action="home_feed.html" class="form-control">
-          <div class="form-div">
-            <label for="email">이메일</label>
-            <input type="email" id="email" class="form-control form-input" />
-          </div>
-          <div class="form-div">
-            <label for="pwd">비밀번호</label>
-            <input type="password" id="pwd" class="form-control form-input" />
-          </div>
-          <button class="btn-default submit-btn" type="submit">로그인</button>
+        <form class="form-control" id="login-form">
+            <div class="form-div">
+                <label for="email">이메일</label>
+                <input type="email" id="email" class="form-control form-input">
+            </div>
+            <div class="form-div">
+                <label for="pwd">비밀번호</label>
+                <input type="password" id="pwd" class="form-control form-input">
+            </div>
+            <div class="error-div"><span id="message" class="error-msg"></span></div>
+            <button id="login-btn" class="btn-default submit-btn" type="button">로그인</button>
         </form>
-        <p class="email_join"><a href="join.html">이메일로 회원가입</a></p>
-      </div>
+        <p style="text-align: center"><a href="join.html">이메일로 회원가입</a></p>
     </div>
-  </body>
+</div>
+</body>
+</html>
 </html>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
+    <title>감귤마켓</title>
 
     <link rel="stylesheet" href="src/css/main.css">
     <style>
@@ -13,6 +13,200 @@
         }
         */
     </style>
+
+<script src="src/js/main.js"></script>
+<script src="src/js/md5.js"></script>
+<script>
+    window.addEventListener("DOMContentLoaded", () => {
+        let join_div = document.getElementById("join");
+        let profile_div = document.getElementById("profile");
+        profile_div.style.display = 'none';
+
+        let email_input = document.getElementById("email");
+        let password_input = document.getElementById("pwd");
+        let next_button = document.getElementById("next-btn");
+        next_button.style.backgroundColor = inactive_color;
+
+        let uid_input = document.getElementById("uid");
+        let join_button = document.getElementById("join-btn");
+        join_button.style.backgroundColor = inactive_color;
+
+        function validateForm() {
+            const is_valid_email = email_input.getAttribute("data-invalid");
+            const is_valid_password = password_input.getAttribute("data-invalid");
+
+            if(is_valid_email === 'true' && is_valid_password === 'true')
+            {
+                next_button.style.backgroundColor = active_color;
+            }
+            else
+            {
+                next_button.style.backgroundColor = inactive_color;
+            }
+
+            console.log("폼 검증 끝");
+        }
+
+        email_input.addEventListener("blur", async (event) => {
+            let email_message = document.getElementById("email-message");
+
+            const input_value = event.target.value.trim();
+
+            if(input_value === '')
+            {
+                email_message.innerText = '* 이메일을 입력해주세요.';
+                event.target.setAttribute("data-invalid", 'false');
+            }
+            else if(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(input_value) === false)
+            {
+                email_message.innerText = '* 이메일 형식이 맞지 않습니다.';
+                event.target.setAttribute("data-invalid", 'false');
+            }
+            else
+            {
+                try {
+                    const res = await fetch(url+"/user/emailvalid", {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json",
+                        },
+                        body : JSON.stringify({
+                                "user":{
+                                    "email": input_value
+                                }
+                            })
+                        });
+                    const resJson = await res.json();
+                    // console.log(resJson);
+
+                    if (resJson.message === "사용 가능한 이메일 입니다.")
+                    {
+                        email_message.innerText = '';
+                        event.target.setAttribute("data-invalid", 'true');
+                    }
+                    else if(resJson.message === "이미 가입된 이메일 주소 입니다.")
+                    {
+                        email_message.innerText = '* ' + resJson.message;
+                        event.target.setAttribute("data-invalid", 'false');
+                    }
+                    console.log("이메일 검증 끝");
+                }
+                catch(err) {
+                    console.error(err);
+                }
+            }
+
+            console.log("이메일 포커스 아웃 끝");
+            validateForm();
+        });
+
+        password_input.addEventListener("blur", (event) => {
+            let pwd_message = document.getElementById("pwd-message");
+
+            if(event.target.value.length < 6)
+            {
+                pwd_message.innerText = '* 비밀번호는 6자 이상이어야 합니다.';
+                event.target.setAttribute("data-invalid", 'false');
+            }
+            else
+            {
+                pwd_message.innerText = '';
+                event.target.setAttribute("data-invalid", 'true');
+            }
+
+            validateForm();
+        });
+
+        next_button.addEventListener("click", async (event) => {
+            profile_div.style.display = 'block';
+            join_div.style.display = 'none';
+        });
+
+        uid_input.addEventListener("blur", async (event) => {
+            let uid_message = document.getElementById("uid-message");
+
+            let input_value = event.target.value;
+            if(/^[a-zA-Z0-9._]+$/.test(input_value) === false) {
+                uid_message.innerText = '* 영문, 숫자, 밑줄 및 마침표만 사용할 수 있습니다.';
+                event.target.setAttribute("data-invalid", 'false');
+            } else {
+                try {
+                    const res = await fetch(url+"/user/accountnamevalid", {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json",
+                        },
+                        body : JSON.stringify({
+                            "user":{
+                                "accountname": input_value
+                            }
+                        })
+                    });
+                    const resJson = await res.json();
+                    // console.log(resJson);
+
+                    if (resJson.message === "사용 가능한 계정ID 입니다.")
+                    {
+                        uid_message.innerText = '';
+                        event.target.setAttribute("data-invalid", 'true');
+                    }
+                    else if(resJson.message === "이미 가입된 계정ID 입니다.")
+                    {
+                        uid_message.innerText = '* ' + resJson.message;
+                        event.target.setAttribute("data-invalid", 'false');
+                    }
+                    console.log("계정 검증 끝");
+                }
+                catch(err) {
+                    uid_message.innerText = '* 잘못된 접근입니다.';
+                    event.target.setAttribute("data-invalid", 'false');
+                    console.error(err);
+                }
+            }
+        });
+
+        join_button.addEventListener("click", async (event) => {
+            try{
+                let name = document.getElementById("name");
+                let uid = document.getElementById("uid");
+
+                let email = email_input.value;
+                let pw = md5(password_input.value)
+
+                const res = await fetch(url+"/user", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body : JSON.stringify({
+                        "user":{
+                            "username": name.value,
+                            "accountname": uid.value,
+                            "email": email,
+                            "password": pw
+                        }
+                    })
+                });
+                const resJson = await res.json();
+                console.log(resJson);
+
+                if(resJson.message === "회원가입 성공")
+                {
+                    let msg = await login(email, pw);
+
+                    if(msg.length > 0)
+                    {
+                        console.error(msg);
+                    }
+                }
+            } catch(err){
+                console.error(err);
+            }
+        });
+
+        // logout_button.addEventListener("click", logout);
+    });
+</script>
 </head>
 <body>
 <div class="container">

@@ -1,5 +1,22 @@
 ﻿@import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css);
 
+/* 기본 스타일 무효화 */
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+ul {
+ list-style-type: none;
+}
+
+button {
+  border: none;
+  background: none;
+}
+
+/* 여기부터 스타일화 */
 
 body {
   display: flex;
@@ -10,8 +27,31 @@ body {
 
 header {
   text-align: center;
-  background-color: white
+  background-color: white;
+  width: 100%;
 }
+
+.intro-container {
+  display: flex;
+  width: 100%;
+  height: 200px;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+}
+
+/* email_login, join 공통 적용 */
+.container {
+  width: 100%;
+  display: flex;
+  margin-top: 30px;
+}
+
+header > h1 {
+  margin-bottom: 43px;
+}
+
+
 
 .header-home {
   position: fixed;
@@ -25,19 +65,23 @@ header {
   align-items: center;
 }
 
-/* 버튼 스타일 무효화 */
-button {
-  border: none;
-  background: none;
+
+
+
+
+ul.login-links {
+  margin-top: 20px;
 }
 
-.container {
-  margin: 8px;
-  display: flex;
+ul > .login-links {
+  display: inline;
 }
 
-.logo {
-  align-self: center;
+ul > #login-links-join::before {
+  content: "|";
+  color: #c4c4c4;
+  padding: 0 12px;
+  font-size: 12px;
 }
 
 .login-btns {
@@ -45,10 +89,9 @@ button {
   text-align: center;
   align-self: center;
   width: 390px;
-  height: 400px;
+  height: 339px;
   left: 0;
-  bottom: -40px;
-  /*border-radius: max(0px, min(8px, calc((100vw - 4px - 100%) * 9999)));*/
+  bottom: -39px;
   background-color: #ffffff;
   border-radius: 20px;
 }
@@ -64,8 +107,7 @@ button {
 }
 
 form.form-control {
-  padding: 0 26px;
-  margin: 0 auto;
+  padding: 0 34px;
 }
 
 .form-control {
@@ -78,6 +120,14 @@ input.form-control {
   padding: 0;
 }
 
+.error-msg {
+  font-family: Spoqa Han Sans Neo;
+font-size: 12px;
+font-weight: 400;
+line-height: 14px;
+  color: #EB5757;
+}
+
 .submit-btn {
   border: 0;
   background-color: rgb(234, 127, 66);
@@ -86,6 +136,9 @@ input.form-control {
 }
 
 .search-btn {
+/* display: inline-block;
+justify-content: center; */
+align-items: center;
 width: 120px;
 height: 44px;
 border-radius: 44px;
@@ -97,7 +150,7 @@ color: white;
 }
 
 .form-div {
-  padding: 10px 0;
+  padding-bottom: 10px;
   text-align: left;
 }
 
@@ -110,6 +163,7 @@ color: white;
 .form-input:focus {
   border-color: rgb(234, 127, 66);
 }
+
 
 label {
   color: #767676;

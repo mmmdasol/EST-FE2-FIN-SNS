@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
+    <title>감귤마켓</title>
 
     <link rel="stylesheet" href="src/css/main.css">
     <style>
@@ -13,13 +13,29 @@
     </style>
 </head>
 <body>
-    <div class="container logo">
-        <div class="logo">
-            <img src="src/img/full-logo.png">
-        </div>
+    <div class="intro-container">
+        <img src="src/img/full-logo.png" >
     </div>
     <script>
         setTimeout(() => window.location.href = 'login.html', 3000);
+
+        window.addEventListener("DOMContentLoaded", async () => {
+            let token = getCookie("token");
+
+            if (token === undefined || token === null) {
+                console.log("Not Logged in");
+
+                setTimeout(() => window.location.href = 'login.html', 3000);
+            } else {
+                console.log("Logged in...");
+
+                if(await checkToken(token))
+                {
+                    setTimeout(() => window.location.href = 'home.html', 3000);
+                }
+            }
+        });
+
     </script>
 </body>
 </html>

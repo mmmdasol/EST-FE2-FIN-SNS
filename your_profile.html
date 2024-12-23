@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>감귤마켓</title>
+
+    <link rel="stylesheet" href="src/css/main.css" />
+    <style>
+      body {
+        display: block;
+      }
+
+      main {
+        padding: 68px 16px 70px 16px;
+      }
+
+      .header-home > div {
+        display: flex;
+        justify-content: space-between;
+        padding: 0;
+      }
+
+      .back-icon {
+        width: 22px;
+        height: 22px;
+        margin: 13px 20px 13px 16px;
+      }
+
+      section.profile-top {
+        height: 314px;
+      }
+
+      div.profile-top-info {
+        font-family: Spoqa Han Sans Neo;
+      }
+
+      p.profile-top-info-count-bold {
+        font-size: 18px;
+        font-weight: 700;
+        line-height: 22.54px;
+        text-align: center;
+        text-underline-position: from-font;
+        text-decoration-skip-ink: none;
+      }
+
+      /* #search-input {
+        width: 316px;
+        height: 32px;
+        border-radius: 32px;
+        border: none;
+        padding: 0;
+        margin: 8px 16px 8px 0;
+        background: #f2f2f2;
+        padding-left: 16px;
+        font-family: Spoqa Han Sans Neo;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 17.53px;
+      }
+
+      #search-input:focus {
+        outline: none;
+        background: #fab57c;
+      }
+
+      #search-input::placeholder {
+        font-size: 14px;
+      }
+
+      ul.search-result {
+        margin: 0;
+        padding: 0;
+      }
+
+
+      span.orange {
+        color: #F26E22;
+      }
+
+      .user-result-div {
+        display: flex;
+        flex-direction: row;
+        margin: 0 0 16px 0;
+        padding: 0;
+        height: 50px;
+      }
+
+      .user-title {
+        font-family: Spoqa Han Sans Neo;
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 17.53px;
+        margin: 5px 0 0 12px ;
+      }
+
+      .user-id {
+        font-family: Spoqa Han Sans Neo;
+        font-size: 12px;
+        font-weight: 400;
+        line-height: 15.02px;
+        margin: 6px 0 6px 12px;
+        color: #767676;
+      }
+
+      div.result-user:hover {
+        background-color: lightgray;
+      } */
+
+      a.navbar-home {
+        color: #f26e22;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="header-home">
+      <div>
+        <a href="search_result.html" class="back-icon" alt="뒤로가기기">
+          <img src="src/img/icon/icon-arrow-left.png" />
+        </a>
+        <button class="">
+          <img src="src/img/icon/icon-more-vertical.png" />
+        </button>
+      </div>
+    </header>
+
+    <main>
+      <section class="profile-top">
+        <div class="profile-top-info">
+          <div>
+            <p class="profile-top-info-count-bold">2950</p>
+            <p class="profile-top-info-follow">followers</p>
+          </div>
+          <div>
+            <img src="src/img/basic-profile-img.png" alt="" />
+          </div>
+          <div>
+            <p class="profile-top-info-count">128</p>
+            <p class="profile-top-info-follow">followings</p>
+          </div>
+        </div>
+
+        <div class="">
+          <p class="">애월읍 위니브 감귤농장</p>
+          <p class="">@ weniv_Mandarin</p>
+        </div>
+
+        <div class="">
+          <p class="">애월읍 감귤 전국 배송, 귤따기 체험, 감귤 농장</p>
+        </div>
+
+        <div class="">
+          <button>
+            <img src="src/img/icon/icon-message-circle.png" alt="" />
+          </button>
+          <button><span>팔로우</span></button>
+          <button><img src="src/img/icon/icon-share.png" alt="" /></button>
+        </div>
+      </section>
+      <section>
+        <h2>판매 중인 상품</h2>
+        <ul>
+          <a href="#">
+            <div>
+              <img src="src/img/product-img1.png" alt="" />
+              <p class="product-title">애월읍 노지 감귤</p>
+              <p class="product-price">35,000원</p>
+            </div>
+          </a>
+          <a href="#">
+            <div>
+              <img src="src/img/product-img2.png" alt="" />
+              <p class="product-title">애월읍 한라봉 10kg...</p>
+              <p class="product-price">45,000원</p>
+            </div>
+          </a>
+          <a href="#">
+            <div>
+              <img src="src/img/product-img3.png" alt="" />
+              <p class="product-title">감귤 파치</p>
+              <p class="product-price">25,000원</p>
+            </div>
+          </a>
+        </ul>
+      </section>
+
+      <section class="post-section">
+        <article class="">
+          <button>
+            <img src="src/img/icon/icon-post-list-on.png" alt="" />
+          </button>
+          <button>
+            <img src="src/img/icon/icon-post-album-off.png" alt="" />
+          </button>
+        </article>
+
+        <article class="post1">
+          <div class="post-header">
+            <img class="user-img" src="src/img/profile-img.png" alt="" />
+            <div class="post-header-title">
+              <p class="post-location">애월읍 위니브 감귤농장</p>
+              <p class="post-id">@ weniv_Mandarin</p>
+            </div>
+
+            <div class="post-more">
+              <button class="post-more-btn">
+                <img src="src/img/icon/s-icon-more-vertical.png" alt="" />
+              </button>
+            </div>
+
+            <dialog>
+              <div class="more-dialog-container">
+                <form method="dialog" style="text-align: center">
+                  <button class="dialog-btn-red">신고</button>
+                  <hr />
+                  <button class="dialog-btn-red">팔로우 취소</button>
+                  <hr />
+                  <button class="dialog-btn">공유 대상</button>
+                  <hr />
+                  <button class="dialog-btn">링크 복사</button>
+                  <hr />
+                  <button class="dialog-btn">취소</button>
+                </form>
+              </div>
+            </dialog>
+          </div>
+          <div class="post-main">
+            <p class="post-main-content">
+              옷을 인생을 그러므로 없으면 것은 이상은 것은 우리의 위하여,
+              뿐이다. 이상의 청춘의 뼈 따뜻한 그들의 그와 약동하다. 대고, 못할
+              넣는 풍부하게 뛰노는 인생의 힘있다.
+            </p>
+            <img src="src/img/post-img-example.png" alt="" class="post-img" />
+          </div>
+          <div class="post-footer">
+            <button class="post-footer-icon-btn" onclick="toggleImg()">
+              <img
+                src="src/img/icon/icon-heart.png"
+                alt=""
+                class="icon-heart"
+              />
+            </button>
+            <sapn class="post-footer-icon-count">58</sapn>
+            <button class="post-footer-icon-btn">
+              <img
+                src="src/img/icon/icon-message-circle.png"
+                alt=""
+                class="icon-comment"
+              />
+            </button>
+            <sapn class="post-footer-icon-count">12</sapn>
+            <p class="post-date">2020년 10월 21일</p>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <footer class="footer-nav">
+      <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+        <ul class="navbar">
+          <li class="navbar-li">
+            <a class="navbar-home" href="home_feed.html">
+              <img
+                src="src/img/icon/icon-home-fill.png"
+                alt=""
+                class="navbar-icon"
+              />
+              <figcaption>홈</figcaption>
+            </a>
+          </li>
+          <li class="navbar-li">
+            <a class="navbar-chat" href="chat_list.html">
+              <img
+                src="src/img/icon/icon-message-circle.png"
+                alt=""
+                class="navbar-icon"
+              />
+              <figcaption>채팅</figcaption>
+            </a>
+          </li>
+          <li class="navbar-li">
+            <a class="navbar-write" href="upload.html">
+              <img
+                src="src/img/icon/icon-edit.png"
+                alt=""
+                class="navbar-icon"
+              />
+              <figcaption>게시물 작성</figcaption>
+            </a>
+          </li>
+          <li class="navbar-li">
+            <a class="navbar-profile" href="my_profile.html">
+              <img
+                src="src/img/icon/icon-user.png"
+                alt=""
+                class="navbar-icon"
+              />
+              <figcaption>프로필</figcaption>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </footer>
+  </body>
+</html>
