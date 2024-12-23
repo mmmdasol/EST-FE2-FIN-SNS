@@ -35,9 +35,13 @@
         padding: 0;
         margin: 8px 16px 8px 0;
         background: #f2f2f2;
+        padding-left: 16px;
+        font-family: Spoqa Han Sans Neo;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 17.53px;
       }
 
-      /* input에 텍스트 입력할 때도 padding-left:16px 적용되도록 개선하기.... */
       #search-input:focus {
         outline: none;
         background: #fab57c;
@@ -45,12 +49,36 @@
 
       #search-input::placeholder {
         font-size: 14px;
-        padding-left: 16px;
       }
 
 
       span.orange {
         color: #F26E22;
+      }
+
+      .user-result-div {
+        display: flex;
+        flex-direction: row;
+        margin: 0 0 16px 0;
+        padding: 0;
+        height: 50px;
+      }
+
+      .user-title {
+        font-family: Spoqa Han Sans Neo;
+font-size: 14px;
+font-weight: 500;
+line-height: 17.53px;
+margin: 5px 0 0 12px ;
+      }
+
+      .user-id {
+        font-family: Spoqa Han Sans Neo;
+font-size: 12px;
+font-weight: 400;
+line-height: 15.02px;
+        margin: 6px 0 6px 12px;
+        color: #767676;
       }
 
 
@@ -65,38 +93,38 @@
   <body>
     <header class="header-home">
       <div>
-        <a href="#" class="back-icon" alt="뒤로가기기">
+        <a href="home_feed.html" class="back-icon" alt="뒤로가기기">
           <img src="src/img/icon/icon-arrow-left.png" />
         </a>
-        <form class="search-box" action="" method="get">
-          <label for="search-keyword"></label>
-          <input type="text" id="search-input" placeholder="계정 검색" value="애월읍"/>
+        <form class="search-box" action="search_result.html" method="get">
+          <label for="search-input"></label>
+          <input type="text" id="search-input" value="애월읍" />
         </form>
       </div>
     </header>
 
     <main>
 
-      <section class="post-section">
-          <div class="post-header">
+      <section class="user-result-section">
+          <div class="user-result-div">
             <img class="user-img" src="src/img/profile-img.png" alt="" />
-            <div class="post-header-title">
-              <p class="post-location"><span class="orange">애월읍</span> 위니브 감귤농장</p>
-              <p class="post-id">@ weniv_Mandarin</p>
+            <div class="user-info">
+              <p class="user-title"><span class="orange">애월읍</span> 위니브 감귤농장</p>
+              <p class="user-id">@ weniv_Mandarin</p>
             </div>
           </div>
-          <div class="post-header">
+          <div class="user-result-div">
             <img class="user-img" src="src/img/profile-hanlabong.png" alt="" />
-            <div class="post-header-title">
-              <p class="post-location"><span class="orange">애월읍</span> 한라봉 최고 맛집</p>
-              <p class="post-id">@ weniv_Mandarin</p>
+            <div class="user-info">
+              <p class="user-title"><span class="orange">애월읍</span> 한라봉 최고 맛집</p>
+              <p class="user-id">@ weniv_Mandarin</p>
             </div>
           </div>
-          <div class="post-header">
+          <div class="user-result-div">
             <img class="user-img" src="src/img/profile-mandarin_king.png" alt="" />
-            <div class="post-header-title">
-              <p class="post-location">감귤의 품격 - <span class="orange">애월읍</span></p>
-              <p class="post-id">@ mandarin_king</p>
+            <div class="user-info">
+              <p class="user-title">감귤의 품격 - <span class="orange">애월읍</span></p>
+              <p class="user-id">@ mandarin_king</p>
             </div>
           </div>
 

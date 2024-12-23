@@ -76,6 +76,11 @@
         margin-top: 0;
       }
 
+      dialog {
+        width: 50%;
+        padding: 2rem 1.5rem;
+      }
+
       .dialog-btn-red {
         color: red;
       }
@@ -392,11 +397,13 @@
     }
 
     // 피드에서 더보기 버튼 클릭 시 모달창 팝업
-    const activeModalButton = document.querySelector("div button");
+    const activeModalButton = document.querySelectorAll(".post-more-btn");
     const modal = document.querySelector("dialog");
 
-    activeModalButton.addEventListener("click", (e) => {
-      modal.showModal();
+    activeModalButton.forEach((btn) => {
+      btn.addEventListener("click", (e) => {
+        modal.showModal();
+      });
     });
 
     modal.addEventListener("click", (e) => {
